@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Smart Watering System</title>
+</head>
+<body>
+   <form method="GET" action="{% url 'settings_form' %}">
+       <h2>Settings</h2>
+       <button type="submit" name="action" value="settings">Enter</button>
+   </form>
+   <form method="POST" action="{% url 'submit_control' %}">
+       {% csrf_token %}
+       <h2>Manual Control</h2>
+       <button type="submit" name="action" value="on">Relay 1 - Water On</button>
+       <button type="submit" name="action" value="off">Relay 1 - Water Off</button>
+       <input type="hidden" name="relay" value="1">
+       <h2>Smart Watering</h2>
+       <button type="submit" name="action" value="activate">Activate</button>
+       <button type="submit" name="action" value="deactivate">Deactivate</button>
+       <h3>Cumulative Water Saving Report</h3>
+       <p>Total Runtime: {{ request.session.cumulative_runtime|default:"0" }} seconds</p>
+   </form>
+</body>
+</html>

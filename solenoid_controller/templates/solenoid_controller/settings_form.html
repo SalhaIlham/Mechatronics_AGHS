@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Settings Form</title>
+</head>
+<body>
+   <form method="POST" action="{% url 'submit_settings' %}">
+       {% csrf_token %}
+       <h2>Settings</h2>
+       <label for="vegetables">Vegetables:</label>
+       <select id="vegetables" name="vegetables">
+           <option value="garlic">Garlic</option>
+           <option value="onion">Onion</option>
+           <option value="shallots">Shallots</option>
+           <option value="artichoke">Artichoke</option>
+           <option value="asparagus">Asparagus</option>
+           <option value="carrot">Carrot</option>
+           <option value="leek">Leek</option>
+           <option value="parsnip">Parsnip</option>
+           <option value="pea">Pea</option>
+       </select>
+       <br>
+       <label for="postcode">Postcode:</label>
+       <input type="text" id="postcode" name="postcode">
+       <br>
+       <label for="summer_start_date">Summer Start Date:</label>
+       <input type="date" id="summer_start_date" name="summer_start_date">
+       <br>
+       <label for="summer_end_date">Summer End Date:</label>
+       <input type="date" id="summer_end_date" name="summer_end_date">
+       <br>
+       <label for="summer_start_time">Summer Start Time:</label>
+       <input type="time" id="summer_start_time" name="summer_start_time">
+       <br>
+       <label for="summer_end_time">Summer End Time:</label>
+       <input type="time" id="summer_end_time" name="summer_end_time">
+       <br>
+       <button type="submit" name="action" value="settings">Submit</button>
+   </form>
+</body>
+</html>
